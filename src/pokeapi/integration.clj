@@ -10,6 +10,5 @@
       json/read-str))
 
 (defn get-pokemon [pokemon]
-  (some->> pokemon
-           (str "pokemon/")
-           (get-request)))
+  (-> (str "pokemon/" pokemon) 
+       (get-request)))
