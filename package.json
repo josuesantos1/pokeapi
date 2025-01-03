@@ -4,10 +4,14 @@
   "description": "FIXME: description",
   "main": "index.js",
   "author": "",
+  "scripts": {
+    "tailwind": "npx tailwindcss -i global.css -o resources/public/assets/css/output.css --watch"
+  },
   "dependencies": {
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "shadow-cljs": "^2.28.11"
+    "shadow-cljs": "^2.28.11",
+    "tailwindcss": "^3.4.17"
   }
 }
