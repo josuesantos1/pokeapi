@@ -14,16 +14,14 @@
 (defn index []
   (slurp (io/resource "public/index.html")))
 
-
 (def app
   (ring/ring-handler
    (ring/router
-    ["/"
-     ["/api"
+    [["/api"
       ["/ping" {:handler (fn [_] {:body "pong" :status 200})}]
       ["/pokemon/:pokemon" {:get {:handler #(pokeapi.controller/get-pokemon %)}}]]
-     ["assets/*" (ring/create-resource-handler {:root "public/assets"})]
-     ["" {:handler (fn [_] {:body (index) :status 200})}]]
+     ["/assets/*" (ring/create-resource-handler {:root "public/assets"})]
+     ["/" {:handler (fn [_] {:body (index) :status 200})}]]
     {:data {:muuntaja m/instance
             :middleware [muuntaja/format-middleware]}})))
 
