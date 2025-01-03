@@ -1,2 +1,6 @@
 **/.cache
 **/.cpcache
+.calva/output-window/output.calva-repl
+/node_modules
+.shadow-cljs
+resources/public/assets/js
