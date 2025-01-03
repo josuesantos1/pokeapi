@@ -1,8 +1,8 @@
 (ns pokeapi.integration-test
   (:require
    [clojure.test :refer [deftest is testing]]
-   [pokeapi.integration]
-   [matcher-combinators.test :refer [match? thrown-match?]]))
+   [matcher-combinators.test :refer [match? thrown-match?]]
+   [pokeapi.integration]))
 
 (deftest get-pokemon-test
   (testing "Should return an pokemon data"
