@@ -1,12 +1,8 @@
-FROM clojure:tools-deps-1.11.1.1208 AS backend-build
+FROM clojure:tools-deps-1.11.1.1208 AS build
 
 WORKDIR /app
 
-COPY package.json package-lock.json tailwind.config.js ./
-COPY src/cljs ./src/cljs
-COPY resources ./resources
-COPY global.css ./global.css
-COPY . .
+ADD . /app
 
 RUN apt-get update && apt-get install -y \
   curl \
@@ -24,18 +20,14 @@ RUN npx tailwindcss -i global.css -o resources/public/assets/css/output.css --mi
 
 RUN npx shadow-cljs release app
 
-WORKDIR /app
-
-COPY deps.edn ./
-COPY src/clj ./src/clj
-
 RUN clj -T:build uber
+
+WORKDIR /app
 
 FROM openjdk:17-jdk-slim
 
-WORKDIR /app
-
-COPY /target/app.jar /app
+COPY resources ./resources
+COPY --from=build /app/target/app.jar app.jar
 
 EXPOSE 3000
 
