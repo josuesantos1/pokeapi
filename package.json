@@ -1,0 +1,13 @@
+{
+  "name": "pokeapi",
+  "version": "1.0.0",
+  "description": "FIXME: description",
+  "main": "index.js",
+  "author": "",
+  "dependencies": {
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "shadow-cljs": "^2.28.11"
+  }
+}
