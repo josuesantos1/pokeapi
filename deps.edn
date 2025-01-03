@@ -15,4 +15,6 @@
                   :main-opts   ["-m" "cognitect.test-runner"]}
            :cljs {:extra-deps {thheller/shadow-cljs {:mvn/version "2.23.1"}
                                lilactown/helix      {:mvn/version "0.1.8"}
-                               funcool/promesa {:mvn/version "8.0.450"}}}}}
+                               funcool/promesa {:mvn/version "8.0.450"}}}
+           :build {:deps {io.github.clojure/tools.build {:git/tag "v0.10.6" :git/sha "52cf7d6"}}
+                    :ns-default build}}}
