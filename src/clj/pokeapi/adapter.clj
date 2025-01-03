@@ -6,11 +6,11 @@
        (map #(get-in % ["ability" "name"]))
        sort))
 
-(defn- get-sprites 
+(defn- get-sprites
   [pokemon]
   (get-in pokemon ["sprites" "front_shiny"]))
 
-(defn- get-stats 
+(defn- get-stats
   [pokemon]
   (->>
    (get pokemon "stats")
