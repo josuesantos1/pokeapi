@@ -1,6 +1,6 @@
 (ns pokeapi.adapter)
 
-(defn- get-ability 
+(defn- get-ability
   [pokemon]
   (->> (get pokemon "abilities")
        (map #(get-in % ["ability" "name"]))

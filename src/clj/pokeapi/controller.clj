@@ -1,6 +1,7 @@
 (ns pokeapi.controller
-  (:require [pokeapi.integration]
-            [pokeapi.adapter]))
+  (:require
+   [pokeapi.adapter]
+   [pokeapi.integration]))
 
 (defn get-pokemon
   [{{:keys [pokemon]} :path-params}]

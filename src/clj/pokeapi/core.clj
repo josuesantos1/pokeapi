@@ -2,9 +2,9 @@
   (:gen-class)
   (:require
    [muuntaja.core :as m]
+   [pokeapi.controller]
    [reitit.coercion.malli]
    [reitit.ring :as ring]
-   [pokeapi.controller]
    [reitit.ring.middleware.muuntaja :as muuntaja]
    [ring.adapter.jetty :as ring.jetty]))
 
@@ -13,7 +13,7 @@
 (def app
   (ring/ring-handler
    (ring/router
-    ["/api" 
+    ["/api"
      ["/ping" {:handler (fn [_] {:body "pong" :status 200})}]
      ["/pokemon/:pokemon" {:get {:handler #(pokeapi.controller/get-pokemon %)}}]]
     {:data {:muuntaja m/instance
@@ -31,5 +31,4 @@
 (comment
   (def server (start))
 
-  (.stop server)
-  )
+  (.stop server))
