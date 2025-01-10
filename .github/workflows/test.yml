@@ -1,0 +1,12 @@
+name: test
+
+on: [push]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: lint
+              run: clj -M:lint
+            - name: test
+              run: clj -M:test
