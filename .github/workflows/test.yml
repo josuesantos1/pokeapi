@@ -8,10 +8,8 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
-            - name: Set up Clojure
-              run: curl -L -O https://github.com/clojure/brew-install/releases/latest/download/linux-install.sh |
-                chmod +x linux-install.sh | 
-                sudo ./linux-install.sh
+            - name: Install clojure tools
+              uses: DeLaGuardo/setup-clojure@12.1
             - name: lint
               run: clj -M:lint
             - name: test
