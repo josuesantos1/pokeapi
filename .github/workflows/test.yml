@@ -12,6 +12,10 @@ jobs:
               uses: DeLaGuardo/setup-clojure@13.0
               with: 
                 cli: latest
+            - name: Install rlwrap
+              run: |
+                sudo apt-get update
+                sudo apt-get install -y rlwrap
             - name: lint
               run: clj -M:lint
             - name: test
