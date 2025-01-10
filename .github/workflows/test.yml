@@ -9,7 +9,9 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v3
             - name: Install clojure tools
-              uses: DeLaGuardo/setup-clojure@12.1
+              uses: DeLaGuardo/setup-clojure@13.0
+              with: 
+                cli: latest
             - name: lint
               run: clj -M:lint
             - name: test
