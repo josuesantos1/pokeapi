@@ -3,3 +3,4 @@
 .cpcache
 .lsp
 .git
+node_modules
