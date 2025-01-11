@@ -1,12 +1,7 @@
 name: deploy
 
-on:
-  push:
-    branches:
-      - main 
-        feature/devops # on dev only
-
-
+on: push
+ 
 jobs:
   deploy:
     runs-on: ubuntu-latest
