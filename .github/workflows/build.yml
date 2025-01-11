@@ -1,8 +1,6 @@
 name: build
+
 on: [push]
-    # push:
-    #   branches:
-    #     - develop
 
 jobs: 
     build:
@@ -19,4 +17,4 @@ jobs:
                 sudo apt-get update
                 sudo apt-get install -y rlwrap
             - name: build clojure
-              run: clj -M:build
+              run: clj -T:build uber
