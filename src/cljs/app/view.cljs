@@ -26,8 +26,13 @@
             (some->> (:weight response) (d/strong "weight: "))
             (d/img {:src (:sprite response)
                     :class "w-1/5 h-auto rounded-lg shadow-lg"}))
-           (when (seq response)
-             (d/div 
+           (cond
+             (= "Not Found" (:message response))
+             (d/div {:class "flex flex-col items-center justify-between space-y-4 p-4 m-3 bg-gray-100 rounded shadow-lg"}
+                    (d/h1 {:class "text-5xl"}
+                          "Pokemon Not Found"))
+             (seq response)
+             (d/div
               (d/div {:class "flex flex-col space-y-4 p-4 m-3 bg-gray-100 rounded shadow-lg"}
                      (d/strong {:class "text-lg"} "Abilities")
                      (map
