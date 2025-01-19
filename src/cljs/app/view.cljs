@@ -14,7 +14,7 @@
                              response (.json _response)
                              data (js->clj response :keywordize-keys true)]
                        (set-state assoc :response data)))]
-    (d/div {:class "flex flex-col space-y-4 p-4 bg-gray-100 rounded shadow-lg"}
+    (d/div {:class "flex h-full flex-col space-y-4 p-4 bg-gray-100 rounded shadow-lg"}
            (d/div {:class "flex flex-col items-center justify-between p-5 bg-gray-50 rounded-lg shadow-md"}
             (d/div
              (d/input {:placeholder "Buscar pokemon"
@@ -28,7 +28,7 @@
                     :class "w-1/5 h-auto rounded-lg shadow-lg"}))
            (cond
              (= "Not Found" (:message response))
-             (d/div {:class "flex flex-col items-center justify-between space-y-4 p-4 m-3 bg-gray-100 rounded shadow-lg"}
+             (d/div {:class "flex min-h-svh flex-col items-center justify-center space-y-4 p-4 m-3 bg-gray-100 rounded shadow-lg"}
                     (d/h1 {:class "text-5xl"}
                           "Pokemon Not Found"))
              (seq response)

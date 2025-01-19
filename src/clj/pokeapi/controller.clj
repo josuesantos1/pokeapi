@@ -1,12 +1,15 @@
 (ns pokeapi.controller
   (:require
    [pokeapi.adapter]
-   [pokeapi.integration]))
+   [pokeapi.integration]
+   [clojure.string :as string]))
 
 (defn get-pokemon
   [{{:keys [pokemon]} :path-params}]
   (try
-    {:body (-> (pokeapi.integration/get-pokemon pokemon)
+    {:body (-> pokemon
+               (string/to-lowecase)
+               (pokeapi.integration/get-pokemon)
                (pokeapi.adapter/data->payload))
      :status 200}
     (catch Exception e
