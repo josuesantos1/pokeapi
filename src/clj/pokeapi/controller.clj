@@ -2,13 +2,13 @@
   (:require
    [pokeapi.adapter]
    [pokeapi.integration]
-   [clojure.string :as string]))
+   [clojure.string :as cstr]))
 
 (defn get-pokemon
   [{{:keys [pokemon]} :path-params}]
   (try
     {:body (-> pokemon
-               (string/to-lowecase)
+               (cstr/lower-case)
                (pokeapi.integration/get-pokemon)
                (pokeapi.adapter/data->payload))
      :status 200}
